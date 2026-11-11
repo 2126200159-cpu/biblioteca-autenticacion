@@ -9,7 +9,14 @@ import java.util.Date;
  * porque su modelo de credenciales y permisos no está pensado para extenderse.
  *
  * @author Joshua Odin Montoya Flores
+ * cosa de prueba
  */
+
+
+
+
+
+
 public final class Administrador extends Persona {
     private String usuario;
     private String contrasena;
