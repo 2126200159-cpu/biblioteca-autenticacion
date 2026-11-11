@@ -49,7 +49,7 @@ src/main/java/edu/utj/evnd/poo/bibliotecaproyec/
 │                 CategoriaController, EditorialController
 ├── App.java, Main.java
 src/main/resources/
-├── login.fxml, menu.fxml, persona.fxml, libro.fxml, categoria.fxml, editorial.fxml
+├── inicio_sesion.fxml, menu.fxml, persona.fxml, libro.fxml, categoria.fxml, editorial.fxml
 └── styles/app.css
 ```
 
