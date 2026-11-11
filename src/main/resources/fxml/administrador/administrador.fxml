@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="580.0" prefWidth="760.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.utj.evnd.poo.bibliotecaproyec.controller.AdministradorController">
+    <stylesheets>
+        <URL value="@/styles/administrador.css" />
+    </stylesheets>
+   <children>
+      <Label layoutX="170.0" layoutY="26.0" prefHeight="34.0" prefWidth="435.0" text="Gestión de Administradores Biblioteca" textFill="#006ce8">
+         <font>
+            <Font name="System Bold" size="23.0" />
+         </font>
+      </Label>
+
+      <!-- CAMPOS IZQUIERDA -->
+      <Label layoutX="30.0" layoutY="65.0" text="ID:" />
+      <TextField fx:id="txtId" layoutX="110.0" layoutY="60.0" prefWidth="150.0" promptText="Escribe un ID" />
+
+      <Label layoutX="30.0" layoutY="100.0" text="CURP:" />
+      <TextField fx:id="txtCurp" layoutX="110.0" layoutY="95.0" prefWidth="150.0" promptText="CURP" />
+
+      <Label layoutX="30.0" layoutY="135.0" text="RFC:" />
+      <TextField fx:id="txtRfc" layoutX="110.0" layoutY="130.0" prefWidth="150.0" promptText="RFC" />
+
+      <Label layoutX="30.0" layoutY="170.0" text="Nombre:" />
+      <TextField fx:id="txtNombre" layoutX="110.0" layoutY="165.0" prefWidth="150.0" promptText="Nombre" />
+
+      <Label layoutX="30.0" layoutY="205.0" text="Apellido:" />
+      <TextField fx:id="txtApellido" layoutX="110.0" layoutY="200.0" prefWidth="150.0" promptText="Apellido" />
+
+      <Label layoutX="30.0" layoutY="240.0" text="Nacimiento:" />
+      <DatePicker fx:id="dpNacimiento" layoutX="110.0" layoutY="235.0" prefWidth="150.0" promptText="Fecha de nac." />
+
+      <!-- CAMPOS DERECHA -->
+      <Label layoutX="470.0" layoutY="65.0" text="Correo:" />
+      <TextField fx:id="txtCorreo" layoutX="550.0" layoutY="60.0" prefWidth="170.0" promptText="correo@ejemplo.com" />
+
+      <Label layoutX="470.0" layoutY="100.0" text="Teléfono:" />
+      <TextField fx:id="txtTelefono" layoutX="550.0" layoutY="95.0" prefWidth="170.0" promptText="Teléfono" />
+
+      <Label layoutX="470.0" layoutY="135.0" text="Usuario:" />
+      <TextField fx:id="txtUsuario" layoutX="550.0" layoutY="130.0" prefWidth="170.0" promptText="Usuario" />
+
+      <Label layoutX="470.0" layoutY="170.0" text="Contraseña:" />
+      <PasswordField fx:id="txtContrasena" layoutX="550.0" layoutY="165.0" prefWidth="170.0" promptText="Contraseña" />
+
+      <Label layoutX="470.0" layoutY="205.0" text="Estado:" />
+      <ComboBox fx:id="cbEstado" layoutX="550.0" layoutY="200.0" prefWidth="170.0" promptText="Seleccione estado" />
+
+      <Label layoutX="470.0" layoutY="240.0" text="Rol:" />
+      <TextField fx:id="txtRol" layoutX="550.0" layoutY="235.0" prefWidth="170.0" promptText="Rol" />
+
+      <!-- BOTONES -->
+      <Button fx:id="btnAgregar" layoutX="150.0" layoutY="290.0" mnemonicParsing="false" onAction="#onAgregar" prefWidth="90.0" text="Agregar" />
+      <Button fx:id="btnBuscar" layoutX="260.0" layoutY="290.0" mnemonicParsing="false" onAction="#onBuscar" prefWidth="90.0" text="Buscar" />
+      <Button fx:id="btnActualizar" layoutX="370.0" layoutY="290.0" mnemonicParsing="false" onAction="#onActualizar" prefWidth="90.0" text="Actualizar" />
+      <Button fx:id="btnBorrar" layoutX="480.0" layoutY="290.0" mnemonicParsing="false" onAction="#onBorrar" prefWidth="90.0" text="Borrar" />
+      <Button fx:id="btnLimpiar" layoutX="590.0" layoutY="290.0" mnemonicParsing="false" onAction="#onLimpiar" prefWidth="90.0" text="Limpiar" />
+
+      <!-- TABLA -->
+      <TableView fx:id="tableAdministradores" layoutX="15.0" layoutY="340.0" prefHeight="220.0" prefWidth="730.0">
+        <columns>
+          <TableColumn fx:id="colId" prefWidth="40.0" text="ID" />
+          <TableColumn fx:id="colCurp" prefWidth="80.0" text="CURP" />
+          <TableColumn fx:id="colRfc" prefWidth="80.0" text="RFC" />
+          <TableColumn fx:id="colNombre" prefWidth="75.0" text="Nombre" />
+          <TableColumn fx:id="colApellido" prefWidth="75.0" text="Apellido" />
+          <TableColumn fx:id="colNacimiento" prefWidth="75.0" text="Nacimiento" />
+          <TableColumn fx:id="colCorreo" prefWidth="85.0" text="Correo" />
+          <TableColumn fx:id="colTelefono" prefWidth="65.0" text="Teléfono" />
+          <TableColumn fx:id="colUsuario" prefWidth="65.0" text="Usuario" />
+          <TableColumn fx:id="colEstado" prefWidth="55.0" text="Estado" />
+          <TableColumn fx:id="colRol" prefWidth="50.0" text="Rol" />
+        </columns>
+      </TableView>
+      <Label layoutX="305.0" layoutY="6.0" text="Joshua Odin Montoya Flores" />
+   </children>
+</AnchorPane>

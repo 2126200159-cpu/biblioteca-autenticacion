@@ -1,0 +1,34 @@
+.root { -fx-font-size: 13px; -fx-base: #f4f6fa; }
+.barra { -fx-background-color: #1f3a5f; }
+.barra-titulo { -fx-text-fill: white; -fx-font-size: 18px; -fx-font-weight: bold; }
+.barra-autor { -fx-text-fill: #c9d6e8; }
+.boton-menu { -fx-background-color: transparent; -fx-text-fill: white; -fx-cursor: hand; }
+.boton-menu:hover { -fx-background-color: #2f5688; }
+.boton-menu.activo { -fx-background-color: #3b6ea8; -fx-font-weight: bold; }
+.vista { -fx-background-color: #f4f6fa; }
+.titulo-vista { -fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #1f3a5f; }
+.subtitulo { -fx-font-weight: bold; -fx-text-fill: #1f3a5f; }
+.aviso { -fx-text-fill: #667085; -fx-font-style: italic; }
+.marco-imagen { -fx-background-color: white; -fx-border-color: #b8c2d1; -fx-border-width: 1; }
+.boton-primario { -fx-background-color: #2e7d32; -fx-text-fill: white; }
+.boton-primario:disabled { -fx-opacity: 0.45; }
+.boton-peligro { -fx-background-color: #c62828; -fx-text-fill: white; }
+.boton-peligro:disabled { -fx-opacity: 0.45; }
+
+/* ===== Validaciones en tiempo real ===== */
+.error-label { -fx-text-fill: #c62828; -fx-font-size: 11px; }
+.text-input:invalido, .combo-box-base:invalido, .date-picker:invalido {
+    -fx-border-color: #c62828; -fx-border-radius: 3; -fx-background-radius: 3;
+}
+.date-picker:invalido > .text-field {
+    -fx-border-color: #c62828; -fx-border-radius: 3; -fx-background-radius: 3;
+}
+
+/* ===== Inicio de sesión ===== */
+.login-fondo { -fx-background-color: #1f3a5f; }
+.login-titulo { -fx-text-fill: white; -fx-font-size: 26px; -fx-font-weight: bold; }
+.login-fondo .aviso { -fx-text-fill: #c9d6e8; }
+.login-tarjeta { -fx-background-color: white; -fx-background-radius: 8; }
+.login-tarjeta .boton-primario { -fx-padding: 9 14 9 14; -fx-font-weight: bold; }
+.barra-usuario { -fx-text-fill: white; -fx-font-weight: bold; }
+.barra-rol { -fx-text-fill: #c9d6e8; }
