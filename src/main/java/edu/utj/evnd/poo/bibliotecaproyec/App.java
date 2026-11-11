@@ -2,6 +2,7 @@ package edu.utj.evnd.poo.bibliotecaproyec;
 
 import edu.utj.evnd.poo.bibliotecaproyec.dao.SesionDao;
 import edu.utj.evnd.poo.bibliotecaproyec.model.UsuarioSesion;
+import edu.utj.evnd.poo.bibliotecaproyec.service.AlmacenamientoService;
 import edu.utj.evnd.poo.bibliotecaproyec.service.SesionActual;
 
 import javafx.application.Application;
@@ -30,6 +31,8 @@ public class App extends Application {
     /** La primera ventana que se muestra es el inicio de sesión. */
     @Override
     public void start(Stage stage) throws IOException {
+        // Crea Documentos/SistemaBiblioteca y su subcarpeta de imágenes (si faltan) y anota el log
+        AlmacenamientoService.inicializar();
         mostrarLogin(stage);
     }
 

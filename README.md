@@ -75,8 +75,8 @@ Editar, Eliminar, Validar y Limpiar / Cancelar, además de búsqueda
 
 1. **Seleccionar:** `FileChooser` (png, jpg, jpeg, gif; máximo 5 MB).
 2. **Vista previa:** la imagen se carga en un `ImageView`.
-3. **Guardar:** se **copia** a la carpeta `imagenes/` del proyecto con nombre
-   único (`prefijo_marcaDeTiempo.ext`) y la **ruta relativa** se guarda en la
+3. **Guardar:** se **copia** a `Documentos/SistemaBiblioteca/imagenes/` con nombre
+   único (`prefijo_marcaDeTiempo.ext`) y el **nombre del archivo** se guarda en la
    columna `url_imagen` al hacer el `INSERT`.
 4. **Actualizar:** si se elige otra imagen, se copia la nueva, se guarda su ruta
    con el `UPDATE` y se borra la anterior. Si no se elige otra, se conserva la actual.
@@ -86,7 +86,40 @@ Editar, Eliminar, Validar y Limpiar / Cancelar, además de búsqueda
    operación (p. ej. el registro está relacionado), la imagen se conserva.
    Del mismo modo, si el `INSERT`/`UPDATE` falla, se borra la copia recién creada.
 
-La carpeta `imagenes/` se crea sola y no se sube al repositorio.
+Los registros antiguos que guardaban `imagenes/archivo.png` siguen funcionando:
+se busca ese nombre de archivo en la carpeta nueva (copia ahí las imágenes de ejemplo
+de la carpeta `imagenes/` del proyecto si quieres verlas).
+
+## Almacenamiento externo, log y distribución
+
+`AlmacenamientoService` crea al arrancar (si no existen) y registra en el log:
+
+```
+Documentos/SistemaBiblioteca/                      carpeta principal
+Documentos/SistemaBiblioteca/imagenes/             imágenes
+Documentos/SistemaBiblioteca/log_directorios.txt   log: fecha | operación | ruta | resultado
+Documentos/SistemaBiblioteca/configuracion.properties   conexión a la base (opcional editar)
+```
+
+Si las carpetas ya existen se continúa normal (el log anota «ya existe»). Si se
+borra `imagenes/` con la app abierta, se recrea al guardar la siguiente imagen.
+En Windows la ruta de Documentos se consulta al sistema (respeta OneDrive).
+
+La conexión usa por defecto `localhost:3306`, `root`, sin contraseña; para otro
+servidor edita `configuracion.properties` (`db.url`, `db.usuario`, `db.clave`).
+
+Scripts en [`distribucion/`](distribucion/) (Windows):
+
+| Script | Qué hace |
+|---|---|
+| `01_verificar_entorno.bat` | Java/JDK, versión, JAVA_HOME, Maven y puerto 3306 de MySQL |
+| `02_compilar_jar.bat` | `mvn clean package` → `target/Bibliotecaproyec-1.0-SNAPSHOT.jar` (JAR con JavaFX y driver incluidos) |
+| `03_ejecutar_jar.bat` | `java -jar` del JAR, fuera del IDE |
+| `04_crear_paquete_con_java.bat` | `jpackage` → `dist/Biblioteca/Biblioteca.exe` con Java incluido (no requiere instalar Java) |
+
+El JAR trae las librerías nativas de JavaFX del sistema donde se compila; compílalo
+en el mismo sistema operativo donde se va a usar. Siempre hay que tener MySQL/MariaDB
+encendido (XAMPP) con la base `biblioteca_db` importada.
 
 ## Validaciones en tiempo real
 
@@ -113,7 +146,7 @@ La carpeta `imagenes/` se crea sola y no se sube al repositorio.
 ## Autenticación y autorización
 
 ### Login
-La primera ventana que se abre es `inicio_sesion.fxml` (`LoginController`). Se escribe el
+La primera ventana que se abre es `login.fxml` (`LoginController`). Se escribe el
 **ID o el correo** y la **contraseña**; `AutenticacionDao` los valida contra la
 base de datos y solo deja entrar si la cuenta está **ACTIVA** (las cuentas
 BLOQUEADAS, SUSPENDIDAS o dadas de BAJA reciben un mensaje y no entran).
