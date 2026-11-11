@@ -113,7 +113,7 @@ La carpeta `imagenes/` se crea sola y no se sube al repositorio.
 ## Autenticación y autorización
 
 ### Login
-La primera ventana que se abre es `login.fxml` (`LoginController`). Se escribe el
+La primera ventana que se abre es `inicio_sesion.fxml` (`LoginController`). Se escribe el
 **ID o el correo** y la **contraseña**; `AutenticacionDao` los valida contra la
 base de datos y solo deja entrar si la cuenta está **ACTIVA** (las cuentas
 BLOQUEADAS, SUSPENDIDAS o dadas de BAJA reciben un mensaje y no entran).
